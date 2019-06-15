@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta charset="UTF-8"/>
+    <!--移动优先-->
+    <title>光合硅能</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1"/>
+    <!-- Set render engine for 360 browser -->
+    <meta name="renderer" content="webkit"/>
+
+    <!-- No Baidu Siteapp-->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+    <link rel="icon" type="image/png" href="/assets/i/favicon.png"/>
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes"/>
+    <link rel="icon" sizes="192x192" href="/assets/i/app-icon72x72@2x.png"/>
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+    <link rel="apple-touch-icon-precomposed" href="/assets/i/app-icon72x72@2x.png"/>
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="/assets/i/app-icon72x72@2x.png"/>
+    <meta name="msapplication-TileColor" content="#0e90d2"/>
+
+    <link rel="stylesheet" th:href="@{/assets/css/amazeui.min.css}"/>
+    <link rel="stylesheet" th:href="@{/assets/css/app.css}"/>
+    <style>
+        .about_img {
+            width: 100%;
+            max-width: 100% !important;
+        }
+
+
+    </style>
+</head>
+
+
+<body>
+<div th:replace="header::menu"></div>
+
+
+<div class="am-u-sm-11 aboutus am-margin-top-lg am-u-sm-centered ">
+    <div class="zmn-center am-margin-top  zmn_title ">经典案例</div>
+    <div class="zmn-center zmn_title1">PRODUCTS</div>
+    <ul data-am-widget="gallery" class="am-gallery am-avg-sm-2 am-avg-md-3 am-avg-lg-4 am-gallery-default"
+        data-am-gallery="{ pureview: true }">
+        <li th:each="caseImg : ${caseImgs}">
+            <div class="am-gallery-item">
+                <a href="#" class="">
+                    <img th:src="@{{imgpath}/{filepath}(imgpath=${caseImg.getImagePath()},filepath=${caseImg.getFileName()})}"
+                         th:alt="${caseImg.getImageDescription()}"/>
+                    <h3 class="am-gallery-title" th:text="${caseImg.getImageDescription()}">远方 有一个地方 那里种有我们的梦想</h3>
+                    <div class="am-gallery-desc" th:text="${#dates.format(caseImg.getUpdateTime(),'yyyy-MM-dd')}">
+                        2375-09-26
+                    </div>
+                </a>
+            </div>
+        </li>
+    </ul>
+
+
+</div>
+</div>
+<div th:replace="footer::navbar"></div>
+
+<!--在这里编写你的代码-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script th:src="@{/assets/js/jquery.min.js}"></script>
+<!--<![endif]-->
+<!--[if lte IE 8 ]>
+<script th:src="@{http://libs.baidu.com/jquery/1.11.3/jquery.min.js}"></script>
+<script th:src="@{http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js}"></script>
+<script th:src="@{/assets/js/amazeui.ie8polyfill.min.js}"></script>
+<![endif]-->
+<script th:src="@{/assets/js/amazeui.min.js}"></script>
+<script th:src="@{https://cdn.jsdelivr.net/npm/vue/dist/vue.js}"></script>
+
+
+<script type="text/javascript">
+
+</script>
+
+</body>
+</html>

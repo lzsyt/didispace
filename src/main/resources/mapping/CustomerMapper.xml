@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.didispace.mapper.CustomerMapper">
+
+  <!-- 通用查询映射结果 -->
+  <resultMap id="CustomerResultMap" type="com.didispace.domain.Customer">
+    <id column="customer_id" property="customerId"/>
+    <result column="mobile" property="mobile"/>
+    <result column="name" property="name"/>
+    <result column="real_name" property="realName"/>
+    <result column="ID_code" property="IDCode"/>
+    <result column="address" property="address"/>
+    <result column="sex" property="sex"/>
+    <result column="age" property="age"/>
+    <result column="register_time" property="registerTime"/>
+    <result column="message" property="message"/>
+    <result column="password" property="password"/>
+  </resultMap>
+
+  <select id="selectName" parameterType="com.didispace.domain.Customer" resultMap="CustomerResultMap">
+    select * from customer
+    <where>
+      <if test="mobile != null and mobile!=''">
+        mobile=#{mobile}
+      </if>
+      <if test="name != null">
+        name=#{name}
+      </if>
+      and password=#{password}
+    </where>
+  </select>
+  <select id="selectRegistName" parameterType="com.didispace.domain.Customer" resultMap="CustomerResultMap">
+    select * from customer
+    <where>
+      <if test="name!=null and name!=''">
+        name=#{name}
+      </if>
+    </where>
+  </select>
+
+  <insert id="insertCustomerName" parameterType="com.didispace.domain.Customer">
+    insert into customer
+    <trim prefix="(" suffix=" )" suffixOverrides=",">
+      <if test="mobile!=null">
+        mobile,
+      </if>
+      <if test="name!=null and name!=''">
+        name,
+      </if>
+      <if test="realName!=null and realName!=''">
+        real_name,
+      </if>
+      <if test="password!=null ">
+        password,
+      </if>
+      <if test="registerTime!=null ">
+        register_time,
+      </if>
+      <if test="message!=null and message!=''">
+        message,
+      </if>
+      <if test="sex!=null">
+        sex,
+      </if>
+    </trim>
+    <trim prefix="values(" suffix=")" suffixOverrides=",">
+      <if test="mobile!=null">
+        #{mobile},
+      </if>
+      <if test="name!=null and name!=''">
+        #{name},
+      </if>
+      <if test="realName!=null and realName!=''">
+        #{realName},
+      </if>
+      <if test="password!=null">
+        #{password},
+      </if>
+      <if test="registerTime!=null ">
+        #{registerTime},
+      </if>
+      <if test="message!=null and message!=''">
+        #{message},
+      </if>
+      <if test="sex!=null">
+        #{sex},
+      </if>
+    </trim>
+  </insert>
+
+  <select id="selectCheckName" parameterType="com.didispace.domain.Customer" resultMap="CustomerResultMap">
+    select * from customer
+    <where>
+      <if test="name!=null and name!=''">
+        name=#{name}
+      </if>
+    </where>
+  </select>
+  <update id="updatePwd" parameterType="com.didispace.domain.Customer">
+    UPDATE customer set password=#{password}
+    <where>
+      <if test="name!=null and name!='' and sex!=''">
+        name=#{name}
+      </if>
+    </where>
+  </update>
+</mapper>

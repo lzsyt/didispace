@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.didispace.mapper.ImageMapper">
+    <sql id="Base_Column_List">
+        file_name,image_path,image_title,image_description,image_detail,i.product_id,update_time,image_type
+    </sql>
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.didispace.domain.Image">
+        <id column="image_id" property="imageId"/>
+        <result column="file_name" property="fileName"/>
+        <result column="image_path" property="imagePath"/>
+        <result column="image_type" property="imageType"/>
+        <result column="image_title" property="imageTitle"/>
+        <result column="image_description" property="imageDescription"/>
+        <result column="image_detail" property="imageDetail"/>
+        <result column="product_id" property="productId"/>
+        <result column="update_time" property="updateTime" javaType="java.util.Date"/>
+        <result column="product_type" property="productType"/>
+        <association property="product" javaType="com.didispace.domain.Product">
+            <!-- id：关联查询用户的唯 一标识
+            column：指定唯 一标识用户信息的列
+            javaType：映射到user的哪个属性
+             -->
+            <id column="product_id" property="productId"/>
+            <result column="product_name" property="productName"/>
+            <result column="price" property="price"/>
+            <result column="creater" property="creater"/>
+            <result column="product_synopsis" property="productSynopsis"/>
+            <result column="product_description" property="productDescription"/>
+            <result column="isdelet" property="isdelet"/>
+            <result column="product_type" property="productType"/>
+            <result column="type" property="type"/>
+        </association>
+    </resultMap>
+
+
+    <select id="findImg" resultMap="BaseResultMap" parameterType="java.util.Map">
+        SELECT
+        <include refid="imgList"/>,<include refid="prtList"/>
+        FROM (
+            select <include refid="imgList"/> from image as img where image_type=#{imgeType} and product_type=#{productType})as img
+        LEFT JOIN product as prt ON img.product_id = prt.product_id
+    </select>
+
+    <select id="selectByCondition" resultMap="BaseResultMap" parameterType="com.didispace.domain.Image">
+        select
+        <include refid="Base_Column_List"/>
+        from image i left join product p
+        on i.product_id=p.product_id
+        <where>
+            <if test="imageType!=null and imageType!=''">
+                image_type=#{imageType}
+            </if>
+            <if test="productId!=null and productId!=''">
+                and i.product_id=#{productId}
+            </if>
+            <if test="productType!=null and productType!=''">
+                and i.product_type=#{productType}
+            </if>
+            order by p.product_num
+        </where>
+    </select>
+
+    <select id="findByName" parameterType="String" resultMap="BaseResultMap">
+        SELECT image_path,product_name as image_title,file_name,p.product_id FROM product p,image i WHERE
+        p.product_id=i.product_id and p.product_name LIKE concat("%",#{productName},"%") AND image_type=5
+    </select>
+
+    <select id="selectByTypeId" resultMap="BaseResultMap" parameterType="com.didispace.domain.Image">
+        select file_name,image_path,image_title,image_description,image_detail,product.product_id,update_time from image
+        inner join product on image.product_id=product.product_id
+        <where>
+            <if test="imageType!=null ">
+                image_type=#{imageType}
+            </if>
+            and product.product_type=#{productType}
+        </where>
+    </select>
+
+    <sql id="imgList">
+            img.image_id as image_id,
+        	img.file_name as file_name,
+        	img.image_path as image_path,
+        	img.image_type as image_type,
+        	img.image_title as image_title,
+        	img.image_description as image_description,
+        	img.image_detail as image_detail,
+        	img.product_id as product_id,
+        	img.update_time as update_time,
+        	img.product_type as product_type
+    </sql>
+    <sql id="prtList">
+            prt.product_id as product_id,
+        	prt.product_name as product_name,
+        	prt.price as price,
+        	prt.creater as creater,
+        	prt.product_synopsis as product_synopsis,
+        	prt.product_description as product_description,
+        	prt.isdelet as isdelet,
+        	prt.product_type as product_type,
+        	prt.type as type
+    </sql>
+</mapper>

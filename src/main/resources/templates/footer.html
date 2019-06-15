@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta charset="UTF-8" />
+    <!--移动优先-->
+    <title>光合硅能</title>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1"/>
+    <!-- Set render engine for 360 browser -->
+    <meta name="renderer" content="webkit"/>
+
+    <!-- No Baidu Siteapp-->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+    <link rel="icon" type="image/png" href="/assets/i/favicon.png"/>
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes"/>
+    <link rel="icon" sizes="192x192" href="/assets/i/app-icon72x72@2x.png"/>
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+    <link rel="apple-touch-icon-precomposed" href="/assets/i/app-icon72x72@2x.png"/>
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="/assets/i/app-icon72x72@2x.png"/>
+    <meta name="msapplication-TileColor" content="#0e90d2"/>
+
+    <link rel="stylesheet" href="/assets/css/amazeui.min.css"/>
+    <link rel="stylesheet" href="/assets/css/app.css"/>
+    <style>
+        #icon_1{
+          width: 55px;
+          height: 55px;
+          border: 1px solid black !important;
+          display: inline-block;
+        }
+        #icon_2{
+
+        }
+        #icon_3{
+
+        }
+        #icon_4{
+
+        }
+    </style>
+
+</head>
+
+<body>
+<div data-am-widget="navbar" th:fragment="navbar" class="am-navbar am-cf am-navbar-default">
+    <ul class="am-navbar-nav am-cf am-avg-sm-4 footer_color">
+        <li >
+            <a href="sms:18601860186?body&#x3D;约吗？" class="">
+              <img id="icon_1"  src="/icon/message.png" style="width: 23px;display: inline-block;" />
+              <span class="am-navbar-label">消息</span>
+            </a>
+        </li>
+        <li >            <a href="tel:18601860186" class="">
+                <img id="icon_2"  src="/icon/tel.png" style="width: 23px;display: inline-block;"/>
+                <span class="am-navbar-label">呼叫</span>
+            </a>
+        </li>
+        <li data-am-navbar-share>
+            <a href="###" class="">
+                <img id="icon_3"  src="/icon/share.png" style="width: 23px;display: inline-block;"/>
+                <span class="am-navbar-label">分享</span>
+            </a>
+        </li>
+        <li >
+            <a th:href="@{/map}" class="">
+                <img id="icon_4" src="/icon/map.png" style="width: 23px;display: inline-block;"/>
+                <span class="am-navbar-label">地图</span>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+
+
+
+
+<!--在这里编写你的代码-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="/assets/js/jquery.min.js"></script>
+<!--<![endif]-->
+<!--[if lte IE 8 ]>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="/assets/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+<script src="/assets/js/amazeui.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+<script type="text/javascript">
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta charset="UTF-8"/>
+    <!--移动优先-->
+    <title>光合硅能</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- Set render engine for 360 browser -->
+    <meta name="renderer" content="webkit"/>
+
+    <!-- No Baidu Siteapp-->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+    <link rel="icon" type="image/png" th:href="@{/assets/i/favicon.png}"/>
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes"/>
+    <!--<link rel="icon" sizes="192x192" th:href="@{/assets/i/app-icon72x72@2x.png}"/>-->
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+    <!--<link rel="apple-touch-icon-precomposed" th:href="@{/assets/i/app-icon72x72@2x.png" }/>-->
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="/assets/i/app-icon72x72@2x.png"/>
+    <meta name="msapplication-TileColor" content="#0e90d2"/>
+
+    <link rel="stylesheet" th:href="@{/assets/css/amazeui.min.css}"/>
+    <link rel="stylesheet" th:href="@{/assets/css/app.css}"/>
+    <style>
+
+
+    </style>
+</head>
+
+
+<body>
+<div th:replace="header::menu"></div>
+
+
+<div class="am-scrollable-vertical layout">
+    <div data-am-widget="slider" class="am-slider am-slider-a1" data-am-slider='{"directionNav":false}'>
+        <ul class="am-slides">
+            <li th:each="prod : ${adimg}">
+                <img th:src="@{{imagePath}/{fileName}(imagePath=${prod.getImagePath()},fileName=${prod.getFileName()})}">
+            </li>
+        </ul>
+    </div>
+    <div class="am-u-sm-11 am-u-sm-centered">
+        <div class="zmn-center am-margin-top  zmn_title ">我们的优势</div>
+        <div class="zmn-center zmn_title1">OUR ADVANTAGE</div>
+        <div class="advance_out am-margin-top ">
+            <ul class="am-avg-sm-4">
+                <li>
+                    <div class="am-u-sm-11 advance_contain">
+                        <img class="imgSet advance_contain advance_image " th:src="@{/assets/i/advantage1.jpg}"/>
+                        <div class="advance_font imgSet"> 专业团队</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="am-u-sm-11 advance_contain">
+                        <img class="imgSet advance_contain advance_image "
+                             th:src="@{/assets/i/advantage1.jpg}"/>
+                        <div class="advance_font imgSet"> 正品保障</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="am-u-sm-11 advance_contain">
+                        <img class="imgSet advance_contain advance_image "
+                             th:src="@{/assets/i/advantage1.jpg}"/>
+                        <div class="advance_font imgSet"> 交易安全</div>
+                    </div>
+
+                </li>
+                <li>
+                    <div class="am-u-sm-11 advance_contain">
+                        <img class="imgSet advance_contain advance_image "
+                             th:src="@{/assets/i/advantage1.jpg}"/>
+                        <div class="advance_font imgSet"> 优质售后</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+
+    </div>
+    <div class="am-g contact am-margin-top-xl">
+        <div class="zmn-center am-margin-top  zmn_title ">自信源于我们对产品质量的一贯苛求</div>
+        <div class="zmn-center zmn_title1"> CONFIDENCE COMES FROM THE QUALITY</div>
+        <div class="zmn-center am-u-sm-centered am-margin-top am-text-lg confidence_text">客户见证</div>
+        <div class="zmn-center am-u-sm-centered am-margin-top am-text-lg confidence_text">技术领先</div>
+        <div class="zmn-center am-u-sm-centered am-margin-top am-text-lg confidence_text">质量保证</div>
+        <div class="zmn-center am-u-sm-centered am-margin-top am-text-lg tel_text">服务热线：<span th:text="${contact.getMobilePhone()}"/></div>
+
+    </div>
+    <div class="am-u-sm-11 aboutus am-margin-top-lg am-u-sm-centered ">
+        <div class="zmn-center am-margin-top  zmn_title ">关于我们</div>
+        <div class="zmn-center zmn_title1"> ABOUT US</div>
+        <div class="am-g am-intro-bd">
+            <p>
+                湖南前沿科技有限公司是一家专业生产风光电池组件以及风光高科技产品的企业，拥有一流的专业技术队伍及先进的生产检测设备。
+                公司引进了最先进的专业生产设备，通过完美的生产工艺和严格的质量控制体系，使产品具有效能高、寿命长等特点。
+            </p>
+            <p>
+                公司拥有全套风光电池组件先进制作设备和技术工艺，秉着“诚信经营”的服务宗旨，我们根据客户需求规划设计，为客户量身打造安全、成熟、
+                性价比优越的完美产品产品远销于非美、亚洲、欧洲等地区，同时为国内众多太阳能产品开发企业提供各种型号太阳能电池组件以其工艺精湛、性能优越而享誉太阳能行业， 深受广大客户以及同行的认可与信赖。
+            </p>
+            <p>
+                湖南前沿科技有限公司将继续以诚信服务、优良品质、服务周全的经营理念，携全体员工，与广大客户共同努力，为创造绿色新能源，
+                推动绿色新能源利用，勇于创新，不断进取，客户至上为宗旨，紧随世界新潮流，促进人与自然社会的和谐发展而不懈努力！
+            </p>
+        </div>
+
+    </div>
+</div>
+<div th:replace="footer::navbar"></div>
+
+<!--在这里编写你的代码-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script th:src="@{/assets/js/jquery.min.js}"></script>
+<!--<![endif]-->
+<!--[if lte IE 8 ]>
+<script th:src="@{http://libs.baidu.com/jquery/1.11.3/jquery.min.js}"></script>
+<script th:src="@{http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js}"></script>
+<script th:src="@{/assets/js/amazeui.ie8polyfill.min.js}"></script>
+<![endif]-->
+<script th:src="@{/assets/js/amazeui.min.js}"></script>
+<script th:src="@{https://cdn.jsdelivr.net/npm/vue/dist/vue.js}"></script>
+
+
+<script type="text/javascript">
+
+</script>
+
+</body>
+</html>

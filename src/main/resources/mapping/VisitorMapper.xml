@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.didispace.mapper.VisitorMapper">
+  <resultMap id="BaseResultMap" type="com.didispace.domain.Visitor">
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="visitor_name" jdbcType="CHAR" property="visitorName" />
+    <result column="IP" jdbcType="CHAR" property="ip" />
+    <result column="visitor_page" jdbcType="VARCHAR" property="visitorPage" />
+    <result column="visitor_time" jdbcType="TIMESTAMP" property="visitorTime" />
+    <result column="visitor_addr" jdbcType="CHAR" property="visitorAddr" />
+    <result column="visitor_type" jdbcType="INTEGER" property="visitorType" />
+    <result column="visitor_pageName" jdbcType="CHAR" property="visitorPagename" />
+    <result column="visitor_productId" jdbcType="INTEGER" property="visitorProductid" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    id, visitor_name, IP, visitor_page, visitor_time, visitor_addr, visitor_type, visitor_pageName, 
+    visitor_productId
+  </sql>
+</mapper>
