@@ -55,14 +55,14 @@
     <div class="am-g am-intro-bd">
         <h2>常见问题</h2>
         <div class="accordion"  th:each="model,status: ${questions}">
-            <h3><span th:text="${status.index+1}"/>,<span th:text="${model.getQuestion()}"/></h3>
+            <h3><span th:text="${status.index+1}"/>、<span th:text="${model.getQuestion()}"/></h3>
             <div>
                 <p><span th:text="${model.getAnswer()}"/></p>
             </div>
         </div>
         <h2>硅能电池的养护</h2>
         <div class="accordion" th:each="model,status: ${introduce}">
-            <h3><span th:text="${status.index+1}"/>,<span th:text="${model.getQuestion()}"/></h3>
+            <h3><span th:text="${status.index+1}"/>、<span th:text="${model.getQuestion()}"/></h3>
             <div>
                 <p><span th:text="${model.getAnswer()}"/></p>
             </div>
