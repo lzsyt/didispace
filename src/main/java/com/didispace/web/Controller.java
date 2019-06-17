@@ -56,6 +56,8 @@ public class Controller {
         image.setImageType("4");
         List<Image> aboutImage = iImageService.selectListByCondition(image);
         model.addAttribute("aboutimgs", aboutImage);
+        Contact contact = contactService.find();
+        model.addAttribute("contact", contact);
         return "aboutus";
     }
 
@@ -96,6 +98,8 @@ public class Controller {
         image.setImageType("5");
         List<Image> mainImages = iImageService.selectListByCondition(image);
         model.addAttribute("imageList", mainImages);
+        Contact contact = contactService.find();
+        model.addAttribute("contact", contact);
         return "products";
     }
 
@@ -111,6 +115,8 @@ public class Controller {
 
         model.addAttribute("introduce",questions);
         model.addAttribute("questions", introduces);
+        Contact contact = contactService.find();
+        model.addAttribute("contact", contact);
         return "technology";
     }
 
@@ -121,13 +127,17 @@ public class Controller {
         //查询案例
         List<Image> caseImage = iImageService.selectListByCondition(image);
         model.addAttribute("caseImgs", caseImage);
+        Contact contact = contactService.find();
+        model.addAttribute("contact", contact);
         return "case";
 
     }
 
 
     @RequestMapping("map")
-    public String map(){
+    public String map(Model model){
+        Contact contact = contactService.find();
+        model.addAttribute("contact", contact);
         return "map";
     }
 

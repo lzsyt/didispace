@@ -93,9 +93,6 @@
     font-weight: bolder;
     line-height: 70px;
 }
-.footer_color{
-    background-color: rgba(0, 0, 0,0.8) !important;
-}
 .menu{
     background-color: rgba(0, 0, 0,0.6) !important;
     box-shadow: inset 0 1px 0 rgba(0,0,0,.2);
