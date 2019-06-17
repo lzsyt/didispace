@@ -51,9 +51,9 @@
     <ul data-am-widget="gallery" class="am-gallery am-avg-sm-2 am-avg-md-3 am-avg-lg-4 am-gallery-default"
         data-am-gallery="{ pureview: true }">
         <li th:each="img : ${imageList}">
-            <div class="am-gallery-item">
+            <div class="am-gallery-item" style="text-align: center">
                 <a href="#" class="">
-                    <img style="height: 100px;width: 120px" th:src="@{{imgpath}/{filepath}(imgpath=${img.getImagePath()},filepath=${img.getFileName()})}" th:alt="${img.getImageDescription()}"/>
+                    <img style="height: 100px" th:src="@{{imgpath}/{filepath}(imgpath=${img.getImagePath()},filepath=${img.getFileName()})}" th:alt="${img.getImageDescription()}"/>
                     <h3 style="text-align: center" class="am-gallery-title" th:text="${img.getImageTitle()}">远方 有一个地方 那里种有我们的梦想</h3>
                     <!--<div class="am-gallery-desc" th:text="${img.getProduct().getPrice()}">2375-09-26</div>-->
                 </a>
