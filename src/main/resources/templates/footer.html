@@ -34,34 +34,34 @@
 </head>
 
 <body>
-<div data-am-widget="navbar" th:fragment="navbar" class="am-navbar am-cf am-navbar-default">
-    <ul class="am-navbar-nav am-cf am-avg-sm-4 footer_color" style="border-top: 1px solid #999;background-color: #fff">
+<div data-am-widget="navbar" th:fragment="navbar" id="footnavbar" class="am-navbar am-cf am-navbar-default" style="margin-bottom: 10px">
+    <ul class="am-navbar-nav am-cf am-avg-sm-4 footer_color" style="border-top: 1px solid #cbcbcb;background-color: #fff">
         <li >
             <a th:href="@{'sms:'+${contact.getMobilePhone()}+'?body&#x3D;你好？'}" class="">
                 <!--<img id="icon_1"  src="/icon/message.png" style="width: 23px;display: inline-block;" />-->
-                <i style="    background: url(/icon/icon.png) no-repeat -102px -54px;background-size: 630%;display: inline-block;width: 30px;height: 30px;"></i>
-                <span class="am-navbar-label" style="color:#ff6637">消息</span>
+                <i style="background: url(/icon/icon.png) no-repeat -102px -54px;background-size: 630%;display: inline-block;width: 30px;height: 30px;"></i>
+                <span class="am-navbar-label" style="color:black;padding-bottom:2px;">消息</span>
             </a>
         </li>
         <li >
             <a th:href="@{'tel:'+${contact.getMobilePhone()}}" class="">
                 <!--<img id="icon_2"  src="/icon/tel.png" style="width: 23px;display: inline-block;"/>-->
                 <i style="background: url(/icon/icon.png) no-repeat  -103px 3px;background-size: 630%;display: inline-block;width: 30px;height: 30px"></i>
-                <span class="am-navbar-label" style="color:#ff6637">呼叫</span>
+                <span class="am-navbar-label" style="color:black;padding-bottom:2px;">呼叫</span>
             </a>
         </li>
         <li data-am-navbar-share>
             <a href="###" class="">
                 <!--<img id="icon_3"  src="/icon/share.png" style="width: 23px;display: inline-block;"/>-->
                 <i style="background: url(/icon/icon.png) no-repeat -154px -53px;background-size: 630%;display: inline-block;width: 30px;height: 30px"></i>
-                <span class="am-navbar-label" style="color:#ff6637">分享</span>
+                <span class="am-navbar-label" style="color:black;padding-bottom:2px;">分享</span>
             </a>
         </li>
         <li >
             <a th:href="@{/map}" class="">
                 <!--<img id="icon_4" src="/icon/map.png" style="width: 23px;display: inline-block;"/>-->
                 <i style="background: url(/icon/icon.png) no-repeat -2px 2px;background-size: 600%;display: inline-block;width: 30px;height: 30px"></i>
-                <span class="am-navbar-label" style="color:#ff6637">地图</span>
+                <span class="am-navbar-label" style="color:black;padding-bottom:2px;">地图</span>
             </a>
         </li>
     </ul>
