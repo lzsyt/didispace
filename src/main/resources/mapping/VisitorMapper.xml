@@ -12,8 +12,4 @@
     <result column="visitor_pageName" jdbcType="CHAR" property="visitorPagename" />
     <result column="visitor_productId" jdbcType="INTEGER" property="visitorProductid" />
   </resultMap>
-  <sql id="Base_Column_List">
-    id, visitor_name, IP, visitor_page, visitor_time, visitor_addr, visitor_type, visitor_pageName, 
-    visitor_productId
-  </sql>
 </mapper>

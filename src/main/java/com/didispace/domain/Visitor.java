@@ -1,5 +1,7 @@
 package com.didispace.domain;
 
+import com.sun.javafx.beans.IDProperty;
+
 import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Date;
