@@ -37,7 +37,6 @@ public class AddressUtil {
                 if (!StringUtils.isEmpty(rs)) {
                     JSONObject jsonObject = JSONObject.parseObject(rs);
                     JSONObject dataObject = JSONObject.parseObject(String.valueOf(jsonObject.get("data")));
-                    ;
                     if (dataObject.get("region") == null) {
                         return String.valueOf(dataObject.get("country"));
 
