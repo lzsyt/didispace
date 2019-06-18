@@ -39,6 +39,13 @@
         .contact_text dd {
             color: #727272;
         }
+        .contact_text2{
+          text-align: center;
+        }
+        .am-form .am-form-group label{
+          font-size: 15px;
+          color: #727272;
+        }
     </style>
 </head>
 
@@ -58,7 +65,7 @@
         <dd><strong>电 话：</strong> <span th:text="*{mobilePhone}"/>&nbsp;&nbsp;&nbsp;<span th:text="*{fixedLinePhone}"/></dd>
         <dd><strong>邮 箱：</strong> <span th:text="*{email}"> </span></dd>
     </div>
-    <h3>联系我们</h3>
+    <h3 class="contact_text2">联系我们</h3>
     <div>
         <form action="" class="am-form">
             <fieldset>
@@ -72,10 +79,10 @@
                 </div>
                 <div class="am-form-group">
                     <label for="doc-vld-question">问题：</label>
-                    <input type="text" id="doc-vld-question" name="question" minlength="3" placeholder="输入问题描述" class="am-form-field" required/>
+                    <input type="text" id="doc-vld-question" name="question" minlength="3" placeholder="输入问题描述" class="am-form-field" />
                 </div>
             </fieldset>
-            <button class="am-btn am-btn-secondary" type="submit" style="float:right ">提交</button>
+            <button id="submitForm" class="am-btn am-btn-secondary" type="submit" style="float:right" >提交</button>
         </form>
     </div>
 </div>
@@ -93,5 +100,43 @@
 <![endif]-->
 <script src="/assets/js/amazeui.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script type="text/javascript">
+  $(document).ready(function () {
+    $("#submitForm").click(function () {
+      var name = $("#doc-vld-username").val();
+      var phone = $("#doc-vld-phone").val();
+      var message = $("#doc-vld-question").val();
+      var website = "光合硅能--手机";
+      if (isNull(name)) {
+        alert("用户名不能为空");
+        return false;
+      }
+      if (isNull(phone)) {
+        alert("电话不能为空");
+        return false;
+      }
+      var data = {"phone": phone, "name": name, "message": message, "website": website};
+      $.ajax({
+        type: 'POST',
+        url: "/customer",
+        data: data,
+        dataType: "text",
+        success: function (result) {
+          if (result == "success") {
+            alert("提交成功");
+          }
+        }
+      });
+      return false;
+    })
+
+    function isNull(value) {
+      if (value == null || $.trim(value) == "") {
+        return true;
+      }
+      return false;
+    }
+  });
+</script>
 </body>
 </html>
