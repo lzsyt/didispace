@@ -8,9 +8,7 @@ import com.didispace.service.IImageService;
 import com.didispace.service.IQuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 import tk.mybatis.mapper.util.StringUtil;
 
 import java.util.List;

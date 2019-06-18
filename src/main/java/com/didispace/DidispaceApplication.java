@@ -2,10 +2,12 @@ package com.didispace;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
 import tk.mybatis.spring.annotation.MapperScan;
 
 @MapperScan("com.didispace.mapper")
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "com.didispace")
+@EnableAspectJAutoProxy(proxyTargetClass = true)
 public class DidispaceApplication {
 
     public static void main(String[] args) {

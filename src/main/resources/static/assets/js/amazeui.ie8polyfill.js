@@ -116,7 +116,7 @@ var defineProperties = (function (has) {
 }(ObjectPrototype.hasOwnProperty));
 
 //
-// Util
+// util
 // ======
 //
 
