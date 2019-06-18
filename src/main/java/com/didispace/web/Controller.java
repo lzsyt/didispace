@@ -12,16 +12,20 @@ import com.didispace.service.IImageService;
 import com.didispace.service.IQuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import tk.mybatis.mapper.util.StringUtil;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 @org.springframework.stereotype.Controller
+@SessionAttributes(value = {"contact"})
 public class Controller {
     @Autowired
     private IImageService iImageService;
@@ -33,6 +37,14 @@ public class Controller {
     private ICustomerService customerService;
 
 
+    @ModelAttribute("contact")
+    public Contact getUser() {
+        Contact contact = contactService.find();
+        return contact;
+
+    }
+
+
     /**
      * 主页
      *
@@ -40,13 +52,12 @@ public class Controller {
      * @return
      */
     @RequestMapping("/")
-    public String index(Model model) {
+    public String index(Map<String, Object> map, Model model) {
         Image image = new Image();
         image.setImageType("1");
         List<Image> adImages = iImageService.selectListByCondition(image);
         model.addAttribute("adimg", adImages);
-        Contact contact = contactService.find();
-        model.addAttribute("contact", contact);
+        model.addAttribute("contact", map.get("contact"));
         return "index";
     }
 
@@ -57,15 +68,14 @@ public class Controller {
      * @return
      */
     @RequestMapping("/aboutus")
-    public String aboutus(Model model) {
+    public String aboutus(Map<String, Object> map,Model model) {
         Image image = new Image();
         //关于我们的图片
 //        logger.info("企业文化");
         image.setImageType("4");
         List<Image> aboutImage = iImageService.selectListByCondition(image);
         model.addAttribute("aboutimgs", aboutImage);
-        Contact contact = contactService.find();
-        model.addAttribute("contact", contact);
+        model.addAttribute("contact", map.get("contact"));
         return "aboutus";
     }
 
@@ -76,9 +86,8 @@ public class Controller {
      * @return
      */
     @RequestMapping("/contact")
-    public String contact(Model model) {
-        Contact contact = contactService.find();
-        model.addAttribute("contact", contact);
+    public String contact(Map<String, Object> map,Model model) {
+        model.addAttribute("contact", map.get("contact"));
         return "contact";
     }
 
@@ -89,7 +98,7 @@ public class Controller {
      * @return
      */
     @RequestMapping("/products")
-    public String products(Model model, String productType) {
+    public String products(Map<String, Object> map,Model model, String productType) {
         Image image = new Image();
         if (StringUtil.isNotEmpty(productType)) {
             image.setProductType(Integer.valueOf(productType));
@@ -106,8 +115,7 @@ public class Controller {
         image.setImageType("5");
         List<Image> mainImages = iImageService.selectListByCondition(image);
         model.addAttribute("imageList", mainImages);
-        Contact contact = contactService.find();
-        model.addAttribute("contact", contact);
+        model.addAttribute("contact", map.get("contact"));
         return "products";
     }
 
@@ -115,7 +123,7 @@ public class Controller {
      * 技术支持
      */
     @RequestMapping("/technology")
-    public String technology(Model model) {
+    public String technology(Map<String, Object> map,Model model) {
         //常见功能
         List<Question> questions = questionService.selectList();
         //电池养护
@@ -123,29 +131,37 @@ public class Controller {
 
         model.addAttribute("introduce",questions);
         model.addAttribute("questions", introduces);
-        Contact contact = contactService.find();
-        model.addAttribute("contact", contact);
+        model.addAttribute("contact", map.get("contact"));
         return "technology";
     }
 
+    /**
+     * 经典案例
+     * @param map
+     * @param model
+     * @return
+     */
     @RequestMapping("/classicCase")
-    public String classicCase(Model model) {
+    public String classicCase(Map<String, Object> map,Model model) {
         Image image = new Image();
         image.setImageType("3");
         //查询案例
         List<Image> caseImage = iImageService.selectListByCondition(image);
         model.addAttribute("caseImgs", caseImage);
-        Contact contact = contactService.find();
-        model.addAttribute("contact", contact);
+        model.addAttribute("contact", map.get("contact"));
         return "case";
 
     }
 
-
+    /**
+     *  地图
+     * @param map
+     * @param model
+     * @return
+     */
     @RequestMapping("map")
-    public String map(Model model){
-        Contact contact = contactService.find();
-        model.addAttribute("contact", contact);
+    public String map(Map<String, Object> map,Model model){
+        model.addAttribute("contact", map.get("contact"));
         return "map";
     }
 
@@ -169,7 +185,6 @@ public class Controller {
       } catch (IOException e) {
         e.printStackTrace();
       }
-
 
       customerService.insert(customer);
       return "success";
