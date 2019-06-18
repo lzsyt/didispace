@@ -1,16 +1,26 @@
 package com.didispace.web;
 
+import com.didispace.common.util.AddressUtil;
+import com.didispace.common.util.NetworkUtil;
 import com.didispace.domain.Contact;
+import com.didispace.domain.Customer;
 import com.didispace.domain.Image;
 import com.didispace.domain.Question;
 import com.didispace.service.ContactService;
+import com.didispace.service.ICustomerService;
 import com.didispace.service.IImageService;
 import com.didispace.service.IQuestionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 import tk.mybatis.mapper.util.StringUtil;
 
+import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 
 @org.springframework.stereotype.Controller
@@ -21,6 +31,8 @@ public class Controller {
     private ContactService contactService;
     @Autowired
     private IQuestionService questionService;
+    @Autowired
+    private ICustomerService customerService;
 
 
     /**
@@ -137,6 +149,32 @@ public class Controller {
         Contact contact = contactService.find();
         model.addAttribute("contact", contact);
         return "map";
+    }
+
+    /*添加客户*/
+    @RequestMapping("/customer")
+    @ResponseBody
+    public String customer(HttpServletRequest request, String phone, String name, String message, String website){
+      Customer customer=new Customer();
+      customer.setName(name);
+      customer.setMessage(message);
+      customer.setMobile(phone);
+      customer.setWebsite(website);
+      customer.setRegisterTime(new Date());
+
+      //获取IP和真实地址
+      try {
+        String ip = NetworkUtil.getIpAddress(request);
+        String adress = AddressUtil.getAdress(ip);
+        customer.setIp(ip);
+        customer.setAddress(adress);
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
+
+
+      customerService.insert(customer);
+      return "success";
     }
 
 }
