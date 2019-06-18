@@ -1,5 +1,8 @@
 package com.didispace.common.util;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -8,6 +11,9 @@ import java.net.URL;
 import java.net.URLConnection;
 
 public class HttpUtils {
+
+
+    private static final Logger logger = LoggerFactory.getLogger(HttpUtils.class);
     /**
      * 向指定 URL 发送POST方法的请求
      * @param url 发送请求的 URL
@@ -44,10 +50,8 @@ public class HttpUtils {
                 result.append(line);
             }
         } catch (Exception e) {
-            System.out.println("发送 POST 请求出现异常！"+e);
-            e.printStackTrace();
-
-
+            logger.warn("发送 POST 请求出现异常！"+e);
+            logger.warn(e.getMessage());
         }
         //使用finally块来关闭输出流、输入流
         finally{
@@ -63,7 +67,7 @@ public class HttpUtils {
                 ex.printStackTrace();
             }
         }
-        System.out.println("post推送结果："+result);
+        logger.warn("post推送结果："+result);
         return result.toString();
     }
 

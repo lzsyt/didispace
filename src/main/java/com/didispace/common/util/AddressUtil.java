@@ -1,11 +1,16 @@
 package com.didispace.common.util;
 
 import com.alibaba.fastjson.JSONObject;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
 
 import java.io.IOException;
 
 public class AddressUtil {
+
+
+    private static final Logger logger = LoggerFactory.getLogger(AddressUtil.class);
 
     /**
      *
@@ -37,7 +42,7 @@ public class AddressUtil {
                             break;
                         }
                     } catch (IOException e) {
-                        e.printStackTrace();
+                        logger.warn(e.getMessage());
                     }
                 }
 

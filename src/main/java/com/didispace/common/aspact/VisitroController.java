@@ -61,19 +61,19 @@ public class VisitroController {
 
     private String judgePage(String uri) {
         if (uri.contains("/aboutus")) {
-            return "手机项目(battery.150ah.com)企业文化";
+            return "光合硅能手机版本:企业文化";
         } else if (uri.contains("/contact")) {
-            return "手机项目(battery.150ah.com)联系我们";
+            return "光合硅能手机版本:联系我们";
         } else if (uri.contains("/products")) {
-            return "手机项目(battery.150ah.com)产品列表";
+            return "光合硅能手机版本:产品列表";
         } else if (uri.contains("/technology")) {
-            return "手机项目(battery.150ah.com)技术支持";
+            return "光合硅能手机版本:技术支持";
         } else if (uri.contains("/classicCase")) {
-            return "手机项目(battery.150ah.com)经典案例";
+            return "光合硅能手机版本:经典案例";
         } else if (uri.contains("map")) {
-            return "手机项目(battery.150ah.com)地图";
+            return "光合硅能手机版本:地图";
         }else if (uri.contains("/")) {
-            return "手机项目(battery.150ah.com)主页";
+            return "光合硅能手机版本:主页";
         }else {
             return "";
         }
