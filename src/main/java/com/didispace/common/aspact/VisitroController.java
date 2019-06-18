@@ -1,5 +1,6 @@
 package com.didispace.common.aspact;
 
+import com.didispace.common.util.AddressUtil;
 import com.didispace.common.util.NetworkUtil;
 import com.didispace.domain.Visitor;
 import com.didispace.service.VisitorService;
@@ -49,7 +50,9 @@ public class VisitroController {
             visitor.setVisitorType(1);
             //访问ip地址
             visitor.setIp(NetworkUtil.getIpAddress(request));
-
+            //访问的真实地址
+            visitor.setVisitorAddr(AddressUtil.getAdress(visitor.getIp()));
+            //插入数据库
             visitorService.addVisitor(visitor);
         }
 
@@ -58,19 +61,19 @@ public class VisitroController {
 
     private String judgePage(String uri) {
         if (uri.contains("/aboutus")) {
-            return "企业文化";
+            return "手机项目(battery.150ah.com)企业文化";
         } else if (uri.contains("/contact")) {
-            return "联系我们";
+            return "手机项目(battery.150ah.com)联系我们";
         } else if (uri.contains("/products")) {
-            return "产品列表";
+            return "手机项目(battery.150ah.com)产品列表";
         } else if (uri.contains("/technology")) {
-            return "技术支持";
+            return "手机项目(battery.150ah.com)技术支持";
         } else if (uri.contains("/classicCase")) {
-            return "经典案例";
+            return "手机项目(battery.150ah.com)经典案例";
         } else if (uri.contains("map")) {
-            return "地图";
+            return "手机项目(battery.150ah.com)地图";
         }else if (uri.contains("/")) {
-            return "主页";
+            return "手机项目(battery.150ah.com)主页";
         }else {
             return "";
         }
