@@ -74,8 +74,9 @@ public class ICustomerServiceImpl implements ICustomerService {
         return customerMapper.updatePwd(customer);
     }
 
+    /*添加客户*/
     @Override
     public void insert(Customer customer) {
-
+      customerMapper.insert(customer);
     }
 }

@@ -6,124 +6,134 @@ import java.util.Date;
 
 @Table(name = "customer")
 public class Customer {
-    @Id
-    private Integer customerId;
+  @Id
+  private Integer customerId;
 
-    private String mobile;
+  private String mobile;
 
-    private String name;
+  private String name;
 
-    private String realName;
+  private String realName;
 
-    private Integer idCode;
+  private Integer idCode;
 
-    private String address;
+  private String address;
 
-    private Integer sex;
+  private Integer sex;
 
-    private Integer age;
+  private Integer age;
 
-    private Date registerTime;
+  private Date registerTime;
 
-    private String message;
+  private String message;
 
-    private String password;
+  private String password;
 
-    private String ip;
+  private String ip;
 
-    public Integer getCustomerId() {
-        return customerId;
-    }
+  private String website;
 
-    public void setCustomerId(Integer customerId) {
-        this.customerId = customerId;
-    }
+  public Integer getCustomerId() {
+    return customerId;
+  }
 
-    public String getMobile() {
-        return mobile;
-    }
+  public void setCustomerId(Integer customerId) {
+    this.customerId = customerId;
+  }
 
-    public void setMobile(String mobile) {
-        this.mobile = mobile == null ? null : mobile.trim();
-    }
+  public String getMobile() {
+    return mobile;
+  }
 
-    public String getName() {
-        return name;
-    }
+  public void setMobile(String mobile) {
+    this.mobile = mobile == null ? null : mobile.trim();
+  }
 
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
-    }
+  public String getName() {
+    return name;
+  }
 
-    public String getRealName() {
-        return realName;
-    }
+  public void setName(String name) {
+    this.name = name == null ? null : name.trim();
+  }
 
-    public void setRealName(String realName) {
-        this.realName = realName == null ? null : realName.trim();
-    }
+  public String getRealName() {
+    return realName;
+  }
 
-    public Integer getIdCode() {
-        return idCode;
-    }
+  public void setRealName(String realName) {
+    this.realName = realName == null ? null : realName.trim();
+  }
 
-    public void setIdCode(Integer idCode) {
-        this.idCode = idCode;
-    }
+  public Integer getIdCode() {
+    return idCode;
+  }
 
-    public String getAddress() {
-        return address;
-    }
+  public void setIdCode(Integer idCode) {
+    this.idCode = idCode;
+  }
 
-    public void setAddress(String address) {
-        this.address = address == null ? null : address.trim();
-    }
+  public String getAddress() {
+    return address;
+  }
 
-    public Integer getSex() {
-        return sex;
-    }
+  public void setAddress(String address) {
+    this.address = address == null ? null : address.trim();
+  }
 
-    public void setSex(Integer sex) {
-        this.sex = sex;
-    }
+  public Integer getSex() {
+    return sex;
+  }
 
-    public Integer getAge() {
-        return age;
-    }
+  public void setSex(Integer sex) {
+    this.sex = sex;
+  }
 
-    public void setAge(Integer age) {
-        this.age = age;
-    }
+  public Integer getAge() {
+    return age;
+  }
 
-    public Date getRegisterTime() {
-        return registerTime;
-    }
+  public void setAge(Integer age) {
+    this.age = age;
+  }
 
-    public void setRegisterTime(Date registerTime) {
-        this.registerTime = registerTime;
-    }
+  public Date getRegisterTime() {
+    return registerTime;
+  }
 
-    public String getMessage() {
-        return message;
-    }
+  public void setRegisterTime(Date registerTime) {
+    this.registerTime = registerTime;
+  }
 
-    public void setMessage(String message) {
-        this.message = message == null ? null : message.trim();
-    }
+  public String getMessage() {
+    return message;
+  }
 
-    public String getPassword() {
-        return password;
-    }
+  public void setMessage(String message) {
+    this.message = message == null ? null : message.trim();
+  }
 
-    public void setPassword(String password) {
-        this.password = password == null ? null : password.trim();
-    }
+  public String getPassword() {
+    return password;
+  }
 
-    public String getIp() {
-        return ip;
-    }
+  public void setPassword(String password) {
+    this.password = password == null ? null : password.trim();
+  }
 
-    public void setIp(String ip) {
-        this.ip = ip == null ? null : ip.trim();
-    }
+  public String getIp() {
+    return ip;
+  }
+
+  public void setIp(String ip) {
+    this.ip = ip == null ? null : ip.trim();
+  }
+
+  public String getWebsite() {
+    return website;
+  }
+  public void setWebsite(String website) {
+    this.website = website;
+  }
+
 }
