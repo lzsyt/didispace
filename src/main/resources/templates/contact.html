@@ -42,6 +42,7 @@
         .am-form .am-form-group label{
           font-size: 15px;
           color: #727272;
+          padding-left: 8px;
         }
     </style>
 </head>
@@ -62,25 +63,27 @@
         <dd><strong>电 话：</strong> <span th:text="*{mobilePhone}"/>&nbsp;&nbsp;&nbsp;<span th:text="*{fixedLinePhone}"/></dd>
         <dd><strong>邮 箱：</strong> <span th:text="*{email}"> </span></dd>
     </div>
+
     <h3 class="contact_text2">联系我们</h3>
+    <hr />
     <div>
-        <form action="" class="am-form">
-            <fieldset>
-                <div class="am-form-group">
-                    <label for="doc-vld-username">您的名字：</label>
-                    <input type="text" id="doc-vld-username" name="username" minlength="3" placeholder="输入用户名" class="am-form-field" required/>
-                </div>
-                <div class="am-form-group">
-                    <label for="doc-vld-phone">您的电话：</label>
-                    <input type="text" id="doc-vld-phone" name="phone" minlength="3" placeholder="输入电话" class="am-form-field" required/>
-                </div>
-                <div class="am-form-group">
-                    <label for="doc-vld-question">问题：</label>
-                    <input type="text" id="doc-vld-question" name="question" minlength="3" placeholder="输入问题描述" class="am-form-field" />
-                </div>
-            </fieldset>
-            <button id="submitForm" class="am-btn am-btn-secondary" type="submit" style="float:right" >提交</button>
-        </form>
+      <form action="" class="am-form">
+        <fieldset style="padding-left: 0px;padding-top: 0px">
+          <div class="am-form-group">
+            <label for="doc-vld-username">您的名字：</label>
+            <input type="text" id="doc-vld-username" name="username" minlength="3" placeholder="输入用户名" class="am-form-field" required/>
+          </div>
+          <div class="am-form-group">
+            <label for="doc-vld-phone">您的电话：</label>
+            <input type="text" id="doc-vld-phone" name="phone" minlength="3" placeholder="输入电话" class="am-form-field" required/>
+          </div>
+          <div class="am-form-group">
+            <label for="doc-vld-question">问题：</label>
+            <input type="text" id="doc-vld-question" name="question" minlength="3" placeholder="输入问题描述" class="am-form-field" />
+          </div>
+        </fieldset>
+        <button id="submitForm" class="am-btn am-btn-secondary" type="submit" style="float:right" >提交</button>
+      </form>
     </div>
 </div>
 <div th:replace="footer::navbar"></div>
