@@ -50,8 +50,8 @@ public class HttpUtils {
                 result.append(line);
             }
         } catch (Exception e) {
-            logger.warn("发送 POST 请求出现异常！"+e);
-            logger.warn(e.getMessage());
+           logger.warn("通过ip获取真实地址发送请求失败");
+            e.printStackTrace();
         }
         //使用finally块来关闭输出流、输入流
         finally{

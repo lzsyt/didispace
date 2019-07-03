@@ -1,6 +1,7 @@
 package com.didispace.common.aspact;
 
 import com.didispace.common.util.AddressUtil;
+import com.didispace.common.util.AddressUtil2;
 import com.didispace.common.util.NetworkUtil;
 import com.didispace.domain.Visitor;
 import com.didispace.service.VisitorService;
@@ -20,7 +21,7 @@ import java.util.Date;
 
 @Aspect
 @Component
-public class VisitroController {
+public class VisitrtAspect {
 
 
     @Autowired
@@ -51,7 +52,11 @@ public class VisitroController {
             //访问ip地址
             visitor.setIp(NetworkUtil.getIpAddress(request));
             //访问的真实地址
-            visitor.setVisitorAddr(AddressUtil.getAdress(visitor.getIp()));
+//            visitor.setVisitorAddr(AddressUtil.getAdress(visitor.getIp()));
+            Long start = System.currentTimeMillis();
+            visitor.setVisitorAddr(AddressUtil2.getAdressByIp(visitor.getIp()));
+            Long end = System.currentTimeMillis();
+            logger.info("获取地址的时间【{}】", end - start);
             //插入数据库
             visitorService.addVisitor(visitor);
         }
