@@ -3,6 +3,7 @@ package com.didispace.common.aspact;
 import com.didispace.common.util.AddressUtil;
 import com.didispace.common.util.AddressUtil2;
 import com.didispace.common.util.NetworkUtil;
+import com.didispace.common.util.VisitorUtil;
 import com.didispace.domain.Visitor;
 import com.didispace.service.VisitorService;
 import org.apache.logging.log4j.LogManager;
@@ -11,6 +12,7 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
@@ -25,13 +27,13 @@ public class VisitrtAspect {
 
 
     @Autowired
-    private VisitorService visitorService;
+    private VisitorUtil visitorUtil;
 
 
 
     protected Logger logger = LogManager.getLogger(getClass());
 
-    @Pointcut("execution(* com.didispace.web.Controller.*(..))")
+    @Pointcut("execution(* com.didispace.web.*.*(..))")
     public void poincut(){}
 
     @Before("poincut()")
@@ -40,48 +42,12 @@ public class VisitrtAspect {
         String uri=request.getRequestURI();
         String regex = "/static/*";
         if (!uri.matches(regex)) {
-            Visitor visitor=new Visitor();
-            //访问页面的名称
-            visitor.setVisitorPagename(judgePage(uri));
-            //访问的url
-            visitor.setVisitorPage(uri);
-            //访问时间
-            visitor.setVisitorTime(new Date());
-            //访问的类型
-            visitor.setVisitorType(1);
-            //访问ip地址
-            visitor.setIp(NetworkUtil.getIpAddress(request));
-            //访问的真实地址
-//            visitor.setVisitorAddr(AddressUtil.getAdress(visitor.getIp()));
-            Long start = System.currentTimeMillis();
-            visitor.setVisitorAddr(AddressUtil2.getAdressByIp(visitor.getIp()));
-            Long end = System.currentTimeMillis();
-            logger.info("获取地址的时间【{}】", end - start);
-            //插入数据库
-            visitorService.addVisitor(visitor);
+            visitorUtil.insertVisitor(request, uri);
         }
 
 
     }
 
-    private String judgePage(String uri) {
-        if (uri.contains("/aboutus")) {
-            return "光合硅能手机版本:企业文化";
-        } else if (uri.contains("/contact")) {
-            return "光合硅能手机版本:联系我们";
-        } else if (uri.contains("/products")) {
-            return "光合硅能手机版本:产品列表";
-        } else if (uri.contains("/technology")) {
-            return "光合硅能手机版本:技术支持";
-        } else if (uri.contains("/classicCase")) {
-            return "光合硅能手机版本:经典案例";
-        } else if (uri.contains("map")) {
-            return "光合硅能手机版本:地图";
-        }else if (uri.contains("/")) {
-            return "光合硅能手机版本:主页";
-        }else {
-            return "";
-        }
-    }
+
 
 }

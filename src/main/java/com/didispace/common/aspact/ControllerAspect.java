@@ -16,7 +16,7 @@ import java.util.Arrays;
 public class ControllerAspect {
     protected Logger logger = LogManager.getLogger(getClass());
 
-    @Pointcut("execution(* com.didispace.web.Controller.*(..))")
+    @Pointcut("execution(* com.didispace.web.PhotosyntheticController.*(..))")
     public void poincut(){}
 
     @Before("poincut()")

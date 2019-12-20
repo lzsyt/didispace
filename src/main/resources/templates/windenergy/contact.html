@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta charset="UTF-8"/>
+    <!--移动优先-->
+    <title>风力发电机-永动新能源有限公司</title>
+    <meta name="keywords" content="小型风力发电机,风光互补路灯系统,太阳能发电系统,家用太阳能发电系统,光伏发电系统,风力发电机,风力发电机厂家,风力发电机价格,小型风力发电机,中小型风力发电机,中型风力发电机,湖南前沿科技,风光互补系统,发电系统,水平轴风力发电机,垂直轴风力发电机" />
+    <meta name="description" content="永动新能源有限公司主要产品有100W-100kW水平轴风力发电机、垂直轴风力发电机等中小型风力发电机、风光互补路灯、风光互补分布式发电系统、太阳能灯路灯等，可为客户提供风力发电、风光互补发电、风光互补路灯，太阳能路灯系统、 太阳能光伏提水系统及光伏并网发电等一站式解决方案，电话:17773166613" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- Set render engine for 360 browser -->
+    <meta name="renderer" content="webkit"/>
+
+    <!-- No Baidu Siteapp-->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+    <link rel="icon" type="image/png" href="/assets/i/favicon.png"/>
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes"/>
+    <link rel="icon" sizes="192x192" href="/assets/i/app-icon72x72@2x.png"/>
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+    <link rel="apple-touch-icon-precomposed" href="/assets/i/app-icon72x72@2x.png"/>
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="/assets/i/app-icon72x72@2x.png"/>
+    <meta name="msapplication-TileColor" content="#0e90d2"/>
+
+    <link rel="stylesheet" href="/assets/css/amazeui.min.css"/>
+    <link rel="stylesheet" href="/assets/css/app.css"/>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=scm1FPgepM119j6ECfmLtPLIE2ZnA1A4"></script>
+    <!--百度商桥代码-->
+    <script>
+      var _hmt = _hmt || [];
+      (function() {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?633b2b542b9cd7c156ec0853c31147b7";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+      })();
+    </script>
+    <style>
+        .contact_text {
+            line-height: 25px;
+            font-size: 15px;
+        }
+        .contact_text dd {
+            color: #727272;
+        }
+        .am-form .am-form-group label{
+          font-size: 15px;
+          color: #727272;
+          padding-left: 8px;
+        }
+        .am-form .am-form-group input{
+        font-size: 15px;
+        font-family: "Segoe UI","Lucida Grande",Helvetica,Arial,"Microsoft YaHei",FreeSans,Arimo,"Droid Sans","wenquanyi micro hei","Hiragino Sans GB","Hiragino Sans GB W3",FontAwesome,sans-serif;
+      }
+    </style>
+</head>
+
+
+<body>
+<div th:replace="windenergy/header::windmenu"></div>
+
+
+<div class="am-u-sm-11 aboutus am-margin-top-lg am-u-sm-centered ">
+    <div class="zmn-center am-margin-top  zmn_title ">联系我们</div>
+    <div class="zmn-center zmn_title1"> CONTACT US</div>
+    <div style="margin-top: 30px">
+      <form action="" class="am-form">
+        <fieldset style="padding-left: 0px;padding-top: 0px">
+          <div class="am-form-group">
+
+            <input type="text" id="doc-vld-username" name="username" minlength="3" placeholder="输入您的姓名" class="am-form-field am-radius" required/>
+          </div>
+          <div class="am-form-group">
+
+            <input type="text" id="doc-vld-phone" name="phone" minlength="3" placeholder="输入电话" class="am-form-field am-radius" required/>
+          </div>
+         <!-- <div class="am-form-group">
+
+            <input type="text" id="doc-vld-question" name="question" minlength="3" placeholder="输入留言" class="am-form-field" />
+          </div>-->
+          <div class="am-form-group">
+            <textarea class="" rows="5" id="doc-ta-1" placeholder="留下联系电话及您的问题,稍后我们将联系到您"></textarea>
+          </div>
+          <button id="submitForm" class="am-btn am-btn-default am-radius" type="submit" style="float:left" >提交</button>
+        </fieldset>
+      </form>
+    </div>
+
+    <div style="">
+      <h3 style="font-size: 18px;color: #000;margin-bottom: 5px">联系方式</h3>
+      <hr style="margin: 5px 0px"/>
+      <div class="am-g contact_text" th:object="${contact}">
+          <dd><strong>地 址：</strong> <span th:text="*{address}"></span></dd>
+          <dd><strong>电 话：</strong> <span th:text="*{mobilePhone}"/>&nbsp;&nbsp;&nbsp;<span th:text="*{fixedLinePhone}"/></dd>
+          <dd><strong>邮 箱：</strong> <span th:text="*{email}"> </span></dd>
+      </div>
+    </div>
+
+
+
+</div>
+<div th:replace="windenergy/footer::windnavbar"></div>
+
+<!--在这里编写你的代码-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="/assets/js/jquery.min.js"></script>
+<!--<![endif]-->
+<!--[if lte IE 8 ]>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="/assets/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+<script src="/assets/js/amazeui.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script type="text/javascript">
+  $(document).ready(function () {
+    $("#submitForm").click(function () {
+      var name = $("#doc-vld-username").val();
+      var phone = $("#doc-vld-phone").val();
+      var message = $("#doc-vld-question").val();
+      var website = "光合硅能--手机";
+      if (isNull(name)) {
+        alert("用户名不能为空");
+        return false;
+      }
+      if (isNull(phone)) {
+        alert("电话不能为空");
+        return false;
+      }
+      var data = {"phone": phone, "name": name, "message": message, "website": website};
+      $.ajax({
+        type: 'POST',
+        url: "/customer",
+        data: data,
+        dataType: "text",
+        success: function (result) {
+          if (result == "success") {
+            alert("提交成功");
+            location.reload(true);
+          }
+        }
+      });
+      return false;
+    })
+
+    function isNull(value) {
+      if (value == null || $.trim(value) == "") {
+        return true;
+      }
+      return false;
+    }
+  });
+</script>
+</body>
+</html>

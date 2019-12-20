@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta charset="UTF-8" />
+    <!--移动优先-->
+    <title>风力发电机-永动新能源有限公司</title>
+    <meta name="keywords" content="小型风力发电机,风光互补路灯系统,太阳能发电系统,家用太阳能发电系统,光伏发电系统,风力发电机,风力发电机厂家,风力发电机价格,小型风力发电机,中小型风力发电机,中型风力发电机,湖南前沿科技,风光互补系统,发电系统,水平轴风力发电机,垂直轴风力发电机" />
+    <meta name="description" content="永动新能源有限公司主要产品有100W-100kW水平轴风力发电机、垂直轴风力发电机等中小型风力发电机、风光互补路灯、风光互补分布式发电系统、太阳能灯路灯等，可为客户提供风力发电、风光互补发电、风光互补路灯，太阳能路灯系统、 太阳能光伏提水系统及光伏并网发电等一站式解决方案，电话:17773166613" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- Set render engine for 360 browser -->
+    <meta name="renderer" content="webkit"/>
+
+    <!-- No Baidu Siteapp-->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+    <link rel="icon" type="image/png" href="/assets/i/favicon.png"/>
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes"/>
+    <link rel="icon" sizes="192x192" href="/assets/i/app-icon72x72@2x.png"/>
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+    <link rel="apple-touch-icon-precomposed" href="/assets/i/app-icon72x72@2x.png"/>
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="/assets/i/app-icon72x72@2x.png"/>
+    <meta name="msapplication-TileColor" content="#0e90d2"/>
+
+    <link rel="stylesheet" href="/assets/css/amazeui.min.css"/>
+    <link rel="stylesheet" href="/assets/css/app.css"/>
+    <link rel="stylesheet" href="//apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css">
+    <script src="//apps.bdimg.com/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+    <script>
+        $(function() {
+            $( ".accordion" ).accordion({
+                collapsible: true,
+                active: false
+            });
+        });
+    </script>
+
+
+</head>
+
+<body>
+<div th:replace="/windenergy/header::windmenu"></div>
+
+
+<div class="am-u-sm-11 aboutus am-margin-top-lg am-u-sm-centered ">
+    <div class="zmn-center am-margin-top  zmn_title ">技术问答</div>
+    <div class="zmn-center zmn_title1"> TECHNICAL SUPPORT</div>
+    <div class="am-g am-intro-bd">
+        <h2>常见问题</h2>
+        <div class="accordion"  th:each="model,status: ${questions}">
+            <h3><span th:text="${status.index+1}"/>、<span th:text="${model.getQuestion()}"/></h3>
+            <div>
+                <p><span th:text="${model.getAnswer()}"/></p>
+            </div>
+        </div>
+        <h2>硅能电池的养护</h2>
+        <div class="accordion" th:each="model,status: ${introduce}">
+            <h3><span th:text="${status.index+1}"/>、<span th:text="${model.getQuestion()}"/></h3>
+            <div>
+                <p><span th:text="${model.getAnswer()}"/></p>
+            </div>
+        </div>
+    </div>
+
+</div>
+</div>
+<div th:replace="/windenergy/footer::windnavbar"></div>
+
+<!--在这里编写你的代码-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+
+<!--<![endif]-->
+<!--[if lte IE 8 ]>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="/assets/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+<script src="/assets/js/amazeui.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+<script type="text/javascript">
+
+</script>
+
+</body>
+</html>

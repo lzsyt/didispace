@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta charset="UTF-8" />
+    <!--移动优先-->
+    <title>风力发电机-永动新能源有限公司</title>
+    <meta name="keywords" content="小型风力发电机,风光互补路灯系统,太阳能发电系统,家用太阳能发电系统,光伏发电系统,风力发电机,风力发电机厂家,风力发电机价格,小型风力发电机,中小型风力发电机,中型风力发电机,湖南前沿科技,风光互补系统,发电系统,水平轴风力发电机,垂直轴风力发电机" />
+    <meta name="description" content="永动新能源有限公司主要产品有100W-100kW水平轴风力发电机、垂直轴风力发电机等中小型风力发电机、风光互补路灯、风光互补分布式发电系统、太阳能灯路灯等，可为客户提供风力发电、风光互补发电、风光互补路灯，太阳能路灯系统、 太阳能光伏提水系统及光伏并网发电等一站式解决方案，电话:17773166613" />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <!-- Set render engine for 360 browser -->
+    <meta name="renderer" content="webkit"/>
+
+    <!-- No Baidu Siteapp-->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+    <link rel="icon" type="image/png" href="/assets/i/favicon.png"/>
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes"/>
+    <link rel="icon" sizes="192x192" href="/assets/i/app-icon72x72@2x.png"/>
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+    <link rel="apple-touch-icon-precomposed" href="/assets/i/app-icon72x72@2x.png"/>
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="/assets/i/app-icon72x72@2x.png"/>
+    <meta name="msapplication-TileColor" content="#0e90d2"/>
+
+    <link rel="stylesheet" href="/assets/css/amazeui.min.css"/>
+    <link rel="stylesheet" href="/assets/css/app.css"/>
+</head>
+
+<body>
+<div data-am-widget="navbar" th:fragment="windnavbar" id="footnavbar" class="am-navbar am-cf am-navbar-default" style="margin-bottom: 5px; box-shadow: 0px -3px 5px rgba(136, 136, 136, 0.12);">
+    <ul class="am-navbar-nav am-cf am-avg-sm-4 footer_color" style="border-top: 1px solid #f0f0f0;background-color: #fff">
+        <li >
+            <a th:href="@{/windenergy/contact}" class="">
+                <!--<img id="icon_1"  src="/icon/message.png" style="width: 23px;display: inline-block;" />-->
+                <i style="background: url(/icon/icon.png) no-repeat -102px -54px;background-size: 630%;display: inline-block;width: 30px;height: 30px;"></i>
+                <span class="am-navbar-label" style="color: #555555;">消息</span>
+            </a>
+        </li>
+        <li >
+            <a th:href="@{'tel:'+${contact.getMobilePhone()}}" class="">
+                <!--<img id="icon_2"  src="/icon/tel.png" style="width: 23px;display: inline-block;"/>-->
+                <i style="background: url(/icon/icon.png) no-repeat  -103px 3px;background-size: 630%;display: inline-block;width: 30px;height: 30px"></i>
+                <span class="am-navbar-label" style="color:#555555;">呼叫</span>
+            </a>
+        </li>
+        <li data-am-navbar-share>
+            <a href="###" class="">
+                <!--<img id="icon_3"  src="/icon/share.png" style="width: 23px;display: inline-block;"/>-->
+                <i style="background: url(/icon/icon.png) no-repeat -154px -53px;background-size: 630%;display: inline-block;width: 30px;height: 30px"></i>
+                <span class="am-navbar-label" style="color:#555555;">分享</span>
+            </a>
+        </li>
+        <li >
+            <a th:href="@{/windenergy/map}" class="">
+                <!--<img id="icon_4" src="/icon/map.png" style="width: 23px;display: inline-block;"/>-->
+                <i style="background: url(/icon/icon.png) no-repeat -2px 2px;background-size: 600%;display: inline-block;width: 30px;height: 30px"></i>
+                <span class="am-navbar-label" style="color:#555555;">地图</span>
+            </a>
+        </li>
+    </ul>
+</div>
+
+
+<!--在这里编写你的代码-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="/assets/js/jquery.min.js"></script>
+<!--<![endif]-->
+<!--[if lte IE 8 ]>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="/assets/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+<script src="/assets/js/amazeui.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+<script type="text/javascript">
+
+</script>
+
+</body>
+</html>

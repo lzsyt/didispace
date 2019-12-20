@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>风力发电机-永动新能源有限公司</title>
+    <meta name="keywords" content="小型风力发电机,风光互补路灯系统,太阳能发电系统,家用太阳能发电系统,光伏发电系统,风力发电机,风力发电机厂家,风力发电机价格,小型风力发电机,中小型风力发电机,中型风力发电机,湖南前沿科技,风光互补系统,发电系统,水平轴风力发电机,垂直轴风力发电机" />
+    <meta name="description" content="永动新能源有限公司主要产品有100W-100kW水平轴风力发电机、垂直轴风力发电机等中小型风力发电机、风光互补路灯、风光互补分布式发电系统、太阳能灯路灯等，可为客户提供风力发电、风光互补发电、风光互补路灯，太阳能路灯系统、 太阳能光伏提水系统及光伏并网发电等一站式解决方案，电话:17773166613" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+        body, html,#allmap {width: 100%;height: 100%;overflow: hidden;margin:0;font-family:"微软雅黑";}
+    </style>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=scm1FPgepM119j6ECfmLtPLIE2ZnA1A4"></script>
+    <link rel="stylesheet" th:href="@{/assets/css/amazeui.min.css}"/>
+    <link rel="stylesheet" th:href="@{/assets/css/app.css}"/>
+
+</head>
+<body>
+<div th:replace="windenergy/header::windmenu"></div>
+<div th:fragment="map" id="allmap"></div>
+<div th:replace="windenergy/footer::windnavbar"></div>
+</body>
+<script th:src="@{/assets/js/jquery.min.js}"></script>
+<!--<![endif]-->
+<!--[if lte IE 8 ]>
+<script th:src="@{http://libs.baidu.com/jquery/1.11.3/jquery.min.js}"></script>
+<script th:src="@{http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js}"></script>
+<script th:src="@{/assets/js/amazeui.ie8polyfill.min.js}"></script>
+<![endif]-->
+<script th:src="@{/assets/js/amazeui.min.js}"></script>
+<script th:src="@{https://cdn.jsdelivr.net/npm/vue/dist/vue.js}"></script>
+</html>
+<script type="text/javascript">
+    // 百度地图API功能
+    var map = new BMap.Map("allmap");    // 创建Map实例
+    map.centerAndZoom(new BMap.Point(112.996469, 28.182525), 11);  // 初始化地图,设置中心点坐标和地图级别
+    var point = new BMap.Point(112.996469, 28.182525);
+    map.centerAndZoom(point, 15);
+    var marker = new BMap.Marker(point);        // 创建标注
+    map.addOverlay(marker);                     // 将标注添加到地图中
+    //添加地图类型控件
+    map.addControl(new BMap.MapTypeControl({
+        mapTypes: [
+            BMAP_NORMAL_MAP,
+            BMAP_HYBRID_MAP
+        ]
+    }));
+    map.setCurrentCity("长沙");          // 设置地图显示的城市 此项是必须设置的
+    map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+</script>

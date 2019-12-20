@@ -1,14 +1,10 @@
 package com.didispace.domain;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import org.attoparser.ParseException;
 
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Locale;
 
 @Table(name = "image")
 public class Image {
@@ -34,6 +30,16 @@ public class Image {
     private Integer productType;
 
     private Product product;
+
+    private String enFileName;
+
+    public String getEnFileName() {
+        return enFileName;
+    }
+
+    public void setEnFileName(String enFileName) {
+        this.enFileName = enFileName;
+    }
 
     public Product getProduct() {
         return product;
